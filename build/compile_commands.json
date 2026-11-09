@@ -1,0 +1,26 @@
+[
+{
+  "directory": "/home/henry_conner/workspace/tetris/build",
+  "command": "/usr/bin/c++  -I/home/henry_conner/workspace/tetris/include -I/home/henry_conner/workspace/tetris -std=gnu++20 -Wall -Wextra -Wshadow -o CMakeFiles/tetris.dir/src/cell.cpp.o -c /home/henry_conner/workspace/tetris/src/cell.cpp",
+  "file": "/home/henry_conner/workspace/tetris/src/cell.cpp",
+  "output": "CMakeFiles/tetris.dir/src/cell.cpp.o"
+},
+{
+  "directory": "/home/henry_conner/workspace/tetris/build",
+  "command": "/usr/bin/c++  -I/home/henry_conner/workspace/tetris/include -I/home/henry_conner/workspace/tetris -std=gnu++20 -Wall -Wextra -Wshadow -o CMakeFiles/tetris.dir/src/layout.cpp.o -c /home/henry_conner/workspace/tetris/src/layout.cpp",
+  "file": "/home/henry_conner/workspace/tetris/src/layout.cpp",
+  "output": "CMakeFiles/tetris.dir/src/layout.cpp.o"
+},
+{
+  "directory": "/home/henry_conner/workspace/tetris/build",
+  "command": "/usr/bin/c++  -I/home/henry_conner/workspace/tetris/include -I/home/henry_conner/workspace/tetris -std=gnu++20 -Wall -Wextra -Wshadow -o CMakeFiles/tetris.dir/src/main.cpp.o -c /home/henry_conner/workspace/tetris/src/main.cpp",
+  "file": "/home/henry_conner/workspace/tetris/src/main.cpp",
+  "output": "CMakeFiles/tetris.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/henry_conner/workspace/tetris/build",
+  "command": "/usr/bin/c++  -I/home/henry_conner/workspace/tetris/include -I/home/henry_conner/workspace/tetris -std=gnu++20 -Wall -Wextra -Wshadow -o CMakeFiles/tetris.dir/src/system.cpp.o -c /home/henry_conner/workspace/tetris/src/system.cpp",
+  "file": "/home/henry_conner/workspace/tetris/src/system.cpp",
+  "output": "CMakeFiles/tetris.dir/src/system.cpp.o"
+}
+]
