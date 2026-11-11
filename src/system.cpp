@@ -1,8 +1,12 @@
 #include "system.h"
+#include "config.h"
+#include "tetrimino.h"
 #include <SDL3/SDL_init.h>
 #include <SDL3/SDL_log.h>
+#include <SDL3/SDL_rect.h>
 #include <SDL3/SDL_render.h>
 #include <SDL3/SDL_stdinc.h>
+#include <SDL3/SDL_surface.h>
 
 void destroy(SystemState& sys) {
   SDL_DestroyRenderer(sys.renderer);
@@ -20,11 +24,27 @@ bool init(SystemState& sys) {
     SDL_Log("Issue with SDL Sub system %s", SDL_GetError());
     success = false;
   }
-  if (!SDL_CreateWindowAndRenderer("Tetris", 680, 900, SDL_WINDOW_RESIZABLE, &sys.window, &sys.renderer)) {
+  if (!SDL_CreateWindowAndRenderer("Tetris", Config::windowWidth, Config::windowHeight, 0, &sys.window, &sys.renderer)) {
     SDL_Log("Issue with SDL Sub system %s", SDL_GetError());
     success = false;
   }
   return success;
+}
+// Rendering
+bool renderTetrimino(SystemState& sys, const Tetrimino& t) {
+  SDL_Log("Rendering Squares");
+  if (!SDL_SetRenderDrawColor(sys.renderer, 0, 239, 255, 255)) {
+    SDL_Log("Failed to set render Draw Color for Tetrimino: ");
+    return false;
+  }
+  for (const SDL_FRect& r : t.m_allRects) {
+    if (!SDL_RenderFillRect(sys.renderer, &r)) {
+      SDL_Log("Failed to set render Draw Color for Tetrimino: ");
+      return false;
+    }
+    //    std::cout << "rendering square at: " << r.x << "and" << r.y;
+  }
+  return true;
 }
 
 bool renderGrid(SystemState& sys, Layout& l) {
@@ -36,7 +56,7 @@ bool renderGrid(SystemState& sys, Layout& l) {
     float x2 = l.m_cellMatrix[i].m_x;
     float y2 = l.m_cellMatrix[i].m_y;
 
-    SDL_Log("Drawing Cell starting at X: %f Y: %f", x1, y1);
+    // SDL_Log("Drawing Cell starting at X: %f Y: %f", x1, y1);
 
     SDL_RenderLine(sys.renderer, x1, y1, x2, y2 + l.cellSize);
     SDL_RenderLine(sys.renderer, x1, y1, x2 + l.cellSize, y2);

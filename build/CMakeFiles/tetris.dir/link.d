@@ -2,10 +2,11 @@ tetris: \
   /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/Scrt1.o \
   /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crti.o \
   /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o \
-  CMakeFiles/tetris.dir/src/cell.cpp.o \
   CMakeFiles/tetris.dir/src/layout.cpp.o \
   CMakeFiles/tetris.dir/src/main.cpp.o \
   CMakeFiles/tetris.dir/src/system.cpp.o \
+  CMakeFiles/tetris.dir/src/tetrimino.cpp.o \
+  CMakeFiles/tetris.dir/src/tetrimino_I.cpp.o \
   /usr/lib/x86_64-linux-gnu/libSDL3_image.so.0.4.0 \
   /usr/lib/x86_64-linux-gnu/libSDL3.so.0.4.2 \
   /usr/lib/gcc/x86_64-linux-gnu/15/libstdc++.so \
@@ -82,13 +83,15 @@ tetris: \
 
 /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o:
 
-CMakeFiles/tetris.dir/src/cell.cpp.o:
-
 CMakeFiles/tetris.dir/src/layout.cpp.o:
 
 CMakeFiles/tetris.dir/src/main.cpp.o:
 
 CMakeFiles/tetris.dir/src/system.cpp.o:
+
+CMakeFiles/tetris.dir/src/tetrimino.cpp.o:
+
+CMakeFiles/tetris.dir/src/tetrimino_I.cpp.o:
 
 /usr/lib/x86_64-linux-gnu/libSDL3_image.so.0.4.0:
 

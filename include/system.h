@@ -1,4 +1,7 @@
+#pragma once
+
 #include "layout.h"
+#include "tetrimino.h"
 #include <SDL3/SDL_init.h>
 #include <SDL3/SDL_log.h>
 #include <SDL3/SDL_render.h>
@@ -13,3 +16,4 @@ struct SystemState {
 void destroy(SystemState& sys);
 bool init(SystemState& sys);
 bool renderGrid(SystemState& sys, Layout& l);
+bool renderTetrimino(SystemState& sys, const Tetrimino& t);

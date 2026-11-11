@@ -14,7 +14,6 @@ file(GLOB SOURCES
     "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
 )
 
-# 3. Create the executable target FIRST
 add_executable(tetris ${SOURCES})
 
 # 4. NOW apply your options and directories to the valid target

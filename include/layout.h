@@ -1,4 +1,7 @@
+
+#pragma once
 #include "cell.h"
+#include "config.h"
 #include <iostream>
 #include <ostream>
 #include <vector>
@@ -8,10 +11,12 @@ struct Layout {
 
   std::vector<std::vector<Cell>> makeGrid();
 
+  float getCellSize();
+
   std::vector<Cell> m_cellMatrix;
-  int rows{30};
-  int cols{30};
-  float cellSize{40};
+  int rows{Config::gridRows};
+  int cols{Config::gridCols};
+  float cellSize{(Config::cellSize)};
   std::vector<std::vector<Cell>> grid;
 
   Cell& operator[](int idx) {

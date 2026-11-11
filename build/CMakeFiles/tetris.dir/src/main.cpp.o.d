@@ -4,7 +4,8 @@ CMakeFiles/tetris.dir/src/main.cpp.o: \
  /home/henry_conner/workspace/tetris/include/system.h \
  /home/henry_conner/workspace/tetris/include/layout.h \
  /home/henry_conner/workspace/tetris/include/cell.h \
- /usr/include/c++/15/ostream /usr/include/c++/15/bits/requires_hosted.h \
+ /home/henry_conner/workspace/tetris/include/config.h \
+ /usr/include/c++/15/iostream /usr/include/c++/15/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/15/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/15/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -15,7 +16,7 @@ CMakeFiles/tetris.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
  /usr/include/x86_64-linux-gnu/c++/15/bits/cpu_defines.h \
- /usr/include/c++/15/pstl/pstl_config.h \
+ /usr/include/c++/15/pstl/pstl_config.h /usr/include/c++/15/ostream \
  /usr/include/c++/15/bits/ostream.h /usr/include/c++/15/ios \
  /usr/include/c++/15/iosfwd /usr/include/c++/15/bits/stringfwd.h \
  /usr/include/c++/15/bits/memoryfwd.h /usr/include/c++/15/bits/postypes.h \
@@ -166,43 +167,46 @@ CMakeFiles/tetris.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/15/bits/ctype_inline.h \
  /usr/include/c++/15/bits/locale_facets.tcc \
  /usr/include/c++/15/bits/basic_ios.tcc \
- /usr/include/c++/15/bits/ostream.tcc /usr/include/c++/15/vector \
+ /usr/include/c++/15/bits/ostream.tcc /usr/include/c++/15/istream \
+ /usr/include/c++/15/bits/istream.tcc /usr/include/c++/15/vector \
  /usr/include/c++/15/bits/stl_uninitialized.h \
  /usr/include/c++/15/bits/stl_vector.h \
  /usr/include/c++/15/bits/stl_bvector.h \
- /usr/include/c++/15/bits/vector.tcc /usr/include/c++/15/iostream \
- /usr/include/c++/15/istream /usr/include/c++/15/bits/istream.tcc \
- /usr/include/SDL3/SDL_init.h /usr/include/SDL3/SDL_stdinc.h \
+ /usr/include/c++/15/bits/vector.tcc \
+ /home/henry_conner/workspace/tetris/include/tetrimino.h \
+ /usr/include/SDL3/SDL_keycode.h /usr/include/SDL3/SDL_stdinc.h \
  /usr/include/SDL3/SDL_platform_defines.h /usr/include/string.h \
  /usr/include/strings.h /usr/lib/gcc/x86_64-linux-gnu/15/include/stdint.h \
  /usr/include/stdint.h /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
  /usr/include/SDL3/SDL_begin_code.h /usr/include/SDL3/SDL_close_code.h \
- /usr/include/SDL3/SDL_error.h /usr/include/SDL3/SDL_events.h \
- /usr/include/SDL3/SDL_audio.h /usr/include/SDL3/SDL_endian.h \
- /usr/include/SDL3/SDL_mutex.h /usr/include/SDL3/SDL_atomic.h \
- /usr/include/SDL3/SDL_thread.h /usr/include/SDL3/SDL_properties.h \
- /usr/include/SDL3/SDL_iostream.h /usr/include/SDL3/SDL_camera.h \
- /usr/include/SDL3/SDL_pixels.h /usr/include/SDL3/SDL_surface.h \
- /usr/include/SDL3/SDL_blendmode.h /usr/include/SDL3/SDL_rect.h \
+ /usr/include/SDL3/SDL_scancode.h /usr/include/SDL3/SDL_rect.h \
+ /usr/include/SDL3/SDL_error.h /usr/include/SDL3/SDL_init.h \
+ /usr/include/SDL3/SDL_events.h /usr/include/SDL3/SDL_audio.h \
+ /usr/include/SDL3/SDL_endian.h /usr/include/SDL3/SDL_mutex.h \
+ /usr/include/SDL3/SDL_atomic.h /usr/include/SDL3/SDL_thread.h \
+ /usr/include/SDL3/SDL_properties.h /usr/include/SDL3/SDL_iostream.h \
+ /usr/include/SDL3/SDL_camera.h /usr/include/SDL3/SDL_pixels.h \
+ /usr/include/SDL3/SDL_surface.h /usr/include/SDL3/SDL_blendmode.h \
  /usr/include/SDL3/SDL_gamepad.h /usr/include/SDL3/SDL_guid.h \
  /usr/include/SDL3/SDL_joystick.h /usr/include/SDL3/SDL_power.h \
  /usr/include/SDL3/SDL_sensor.h /usr/include/SDL3/SDL_keyboard.h \
- /usr/include/SDL3/SDL_keycode.h /usr/include/SDL3/SDL_scancode.h \
  /usr/include/SDL3/SDL_video.h /usr/include/SDL3/SDL_mouse.h \
  /usr/include/SDL3/SDL_pen.h /usr/include/SDL3/SDL_touch.h \
  /usr/include/SDL3/SDL_log.h /usr/include/SDL3/SDL_render.h \
- /usr/include/SDL3/SDL_gpu.h /usr/include/SDL3/SDL.h \
- /usr/include/SDL3/SDL_assert.h /usr/include/SDL3/SDL_asyncio.h \
- /usr/include/SDL3/SDL_bits.h /usr/include/SDL3/SDL_clipboard.h \
- /usr/include/SDL3/SDL_cpuinfo.h /usr/include/SDL3/SDL_dialog.h \
- /usr/include/SDL3/SDL_dlopennote.h /usr/include/SDL3/SDL_filesystem.h \
- /usr/include/SDL3/SDL_haptic.h /usr/include/SDL3/SDL_hidapi.h \
- /usr/include/SDL3/SDL_hints.h /usr/include/SDL3/SDL_loadso.h \
- /usr/include/SDL3/SDL_locale.h /usr/include/SDL3/SDL_messagebox.h \
- /usr/include/SDL3/SDL_metal.h /usr/include/SDL3/SDL_misc.h \
- /usr/include/SDL3/SDL_platform.h /usr/include/SDL3/SDL_process.h \
- /usr/include/SDL3/SDL_storage.h /usr/include/SDL3/SDL_system.h \
- /usr/include/SDL3/SDL_time.h /usr/include/SDL3/SDL_timer.h \
- /usr/include/SDL3/SDL_tray.h /usr/include/SDL3/SDL_version.h \
- /usr/include/SDL3/SDL_oldnames.h
+ /usr/include/SDL3/SDL_gpu.h \
+ /home/henry_conner/workspace/tetris/include/tetrimino_I.h \
+ /usr/include/c++/15/cassert /usr/include/assert.h \
+ /usr/include/SDL3/SDL.h /usr/include/SDL3/SDL_assert.h \
+ /usr/include/SDL3/SDL_asyncio.h /usr/include/SDL3/SDL_bits.h \
+ /usr/include/SDL3/SDL_clipboard.h /usr/include/SDL3/SDL_cpuinfo.h \
+ /usr/include/SDL3/SDL_dialog.h /usr/include/SDL3/SDL_dlopennote.h \
+ /usr/include/SDL3/SDL_filesystem.h /usr/include/SDL3/SDL_haptic.h \
+ /usr/include/SDL3/SDL_hidapi.h /usr/include/SDL3/SDL_hints.h \
+ /usr/include/SDL3/SDL_loadso.h /usr/include/SDL3/SDL_locale.h \
+ /usr/include/SDL3/SDL_messagebox.h /usr/include/SDL3/SDL_metal.h \
+ /usr/include/SDL3/SDL_misc.h /usr/include/SDL3/SDL_platform.h \
+ /usr/include/SDL3/SDL_process.h /usr/include/SDL3/SDL_storage.h \
+ /usr/include/SDL3/SDL_system.h /usr/include/SDL3/SDL_time.h \
+ /usr/include/SDL3/SDL_timer.h /usr/include/SDL3/SDL_tray.h \
+ /usr/include/SDL3/SDL_version.h /usr/include/SDL3/SDL_oldnames.h

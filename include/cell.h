@@ -1,5 +1,5 @@
-#include <ostream>
-#include <vector>
+
+#pragma once
 
 struct Cell {
   Cell() = default;

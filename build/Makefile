@@ -129,30 +129,6 @@ tetris/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tetris.dir/build.make CMakeFiles/tetris.dir/build
 .PHONY : tetris/fast
 
-src/cell.o: src/cell.cpp.o
-.PHONY : src/cell.o
-
-# target to build an object file
-src/cell.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tetris.dir/build.make CMakeFiles/tetris.dir/src/cell.cpp.o
-.PHONY : src/cell.cpp.o
-
-src/cell.i: src/cell.cpp.i
-.PHONY : src/cell.i
-
-# target to preprocess a source file
-src/cell.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tetris.dir/build.make CMakeFiles/tetris.dir/src/cell.cpp.i
-.PHONY : src/cell.cpp.i
-
-src/cell.s: src/cell.cpp.s
-.PHONY : src/cell.s
-
-# target to generate assembly for a file
-src/cell.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tetris.dir/build.make CMakeFiles/tetris.dir/src/cell.cpp.s
-.PHONY : src/cell.cpp.s
-
 src/layout.o: src/layout.cpp.o
 .PHONY : src/layout.o
 
@@ -225,6 +201,54 @@ src/system.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tetris.dir/build.make CMakeFiles/tetris.dir/src/system.cpp.s
 .PHONY : src/system.cpp.s
 
+src/tetrimino.o: src/tetrimino.cpp.o
+.PHONY : src/tetrimino.o
+
+# target to build an object file
+src/tetrimino.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tetris.dir/build.make CMakeFiles/tetris.dir/src/tetrimino.cpp.o
+.PHONY : src/tetrimino.cpp.o
+
+src/tetrimino.i: src/tetrimino.cpp.i
+.PHONY : src/tetrimino.i
+
+# target to preprocess a source file
+src/tetrimino.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tetris.dir/build.make CMakeFiles/tetris.dir/src/tetrimino.cpp.i
+.PHONY : src/tetrimino.cpp.i
+
+src/tetrimino.s: src/tetrimino.cpp.s
+.PHONY : src/tetrimino.s
+
+# target to generate assembly for a file
+src/tetrimino.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tetris.dir/build.make CMakeFiles/tetris.dir/src/tetrimino.cpp.s
+.PHONY : src/tetrimino.cpp.s
+
+src/tetrimino_I.o: src/tetrimino_I.cpp.o
+.PHONY : src/tetrimino_I.o
+
+# target to build an object file
+src/tetrimino_I.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tetris.dir/build.make CMakeFiles/tetris.dir/src/tetrimino_I.cpp.o
+.PHONY : src/tetrimino_I.cpp.o
+
+src/tetrimino_I.i: src/tetrimino_I.cpp.i
+.PHONY : src/tetrimino_I.i
+
+# target to preprocess a source file
+src/tetrimino_I.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tetris.dir/build.make CMakeFiles/tetris.dir/src/tetrimino_I.cpp.i
+.PHONY : src/tetrimino_I.cpp.i
+
+src/tetrimino_I.s: src/tetrimino_I.cpp.s
+.PHONY : src/tetrimino_I.s
+
+# target to generate assembly for a file
+src/tetrimino_I.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tetris.dir/build.make CMakeFiles/tetris.dir/src/tetrimino_I.cpp.s
+.PHONY : src/tetrimino_I.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -234,9 +258,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... tetris"
-	@echo "... src/cell.o"
-	@echo "... src/cell.i"
-	@echo "... src/cell.s"
 	@echo "... src/layout.o"
 	@echo "... src/layout.i"
 	@echo "... src/layout.s"
@@ -246,6 +267,12 @@ help:
 	@echo "... src/system.o"
 	@echo "... src/system.i"
 	@echo "... src/system.s"
+	@echo "... src/tetrimino.o"
+	@echo "... src/tetrimino.i"
+	@echo "... src/tetrimino.s"
+	@echo "... src/tetrimino_I.o"
+	@echo "... src/tetrimino_I.i"
+	@echo "... src/tetrimino_I.s"
 .PHONY : help
 
 
