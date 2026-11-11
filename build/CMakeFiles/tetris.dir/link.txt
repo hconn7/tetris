@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/tetris.dir/link.d CMakeFiles/tetris.dir/src/layout.cpp.o CMakeFiles/tetris.dir/src/main.cpp.o CMakeFiles/tetris.dir/src/system.cpp.o CMakeFiles/tetris.dir/src/tetrimino.cpp.o CMakeFiles/tetris.dir/src/tetrimino_I.cpp.o -o tetris  /usr/lib/x86_64-linux-gnu/libSDL3_image.so.0.4.0 /usr/lib/x86_64-linux-gnu/libSDL3.so.0.4.2
