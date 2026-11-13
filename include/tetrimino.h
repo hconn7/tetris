@@ -5,6 +5,7 @@
 #include <SDL3/SDL_rect.h>
 #include <vector>
 
+struct Layout;
 class Tetrimino {
 public:
   std::vector<SDL_FRect> m_allRects;
@@ -19,11 +20,12 @@ public:
     MAX_TETRIMINOS,
   }; // End Enum
 
-  Tetrimino(Type) {}
+  explicit Tetrimino(Type) {}
 
   virtual ~Tetrimino() = default;
 
   void moveTetriminoOnX(SDL_Keycode k);
+  void moveTetriminoOnY(Layout& l);
 
 protected:
   SDL_FRect m_baseSqaure;

@@ -1,14 +1,17 @@
 #include "layout.h"
+#include "config.h"
+#include "tetrimino.h"
+#include <SDL3/SDL_rect.h>
 #include <iostream>
 #include <vector>
 
 std::ostream& operator<<(std::ostream& out, Cell& c) {
-  return out << c.m_x << c.m_y;
+  return out << c.m_point.m_x << c.m_point.m_y;
 }
 std::ostream& operator<<(std::ostream& out, Layout& layout) {
-  for (int y = 0; y < layout.rows; ++y) {
-    for (int x = 0; x < layout.cols; ++x) {
-      out << layout.grid[y][x] << " ";
+  for (int y = 0; y < layout.m_rows; ++y) {
+    for (int x = 0; x < layout.m_cols; ++x) {
+      out << layout.m_grid[y][x] << " ";
     }
     out << "\n";
   }
@@ -18,12 +21,13 @@ std::ostream& operator<<(std::ostream& out, Layout& layout) {
 std::vector<Cell> makeCellMatrix(Layout& layout) {
   layout.m_cellMatrix = std::vector<Cell>{};
 
-  for (float y = 0; y < layout.rows; ++y) {
-    for (float x = 0; x < layout.cols; ++x) {
+  for (int y = 0; y < layout.m_rows; ++y) {
+    for (int x = 0; x < layout.m_cols; ++x) {
       if (y == 0 && x < 1) {
-        layout.m_cellMatrix.push_back({x * layout.cellSize, y});
+
+        layout.m_cellMatrix.push_back(Point{static_cast<int>(layout.m_cellSize) * x, y});
       } else {
-        layout.m_cellMatrix.push_back({layout.cellSize * x, layout.cellSize * y});
+        layout.m_cellMatrix.push_back(Point{static_cast<int>(layout.m_cellSize) * x, static_cast<int>(layout.m_cellSize) * y});
       }
     }
   }
@@ -31,12 +35,23 @@ std::vector<Cell> makeCellMatrix(Layout& layout) {
   return layout.m_cellMatrix;
 }
 std::vector<std::vector<Cell>> Layout::makeGrid() {
-
-  grid = std::vector<std::vector<Cell>>(rows, std::vector<Cell>(cols));
-  for (float y{0}; y < rows; ++y) {
-    for (float x{0}; x < cols; ++x) {
-      grid[y][x] = Cell{x, y};
+  m_grid = std::vector<std::vector<Cell>>(m_rows, std::vector<Cell>(m_cols));
+  for (int y{0}; y < m_rows; ++y) {
+    for (int x{0}; x < m_cols; ++x) {
+      m_grid[y][x] = Cell{Point{x, y}};
     }
   }
-  return grid;
+  return m_grid;
+}
+
+bool Layout::isItOccupied(std::span<SDL_FRect> allRects) {
+  bool isOccupied{false};
+  for (const SDL_FRect& rect : allRects) {
+    for (Cell& c : m_cellMatrix) {
+      if (rect.y + (Config::cellSize * 2) == c.m_cellIsOccupied) {
+        isOccupied = c.m_cellIsOccupied;
+      }
+    }
+  }
+  return isOccupied;
 }

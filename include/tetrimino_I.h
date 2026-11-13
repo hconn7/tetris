@@ -10,7 +10,7 @@
 class I_Tetrimino : public Tetrimino {
 
 public:
-  I_Tetrimino() : Tetrimino(TETRIMINO_I) {
+  explicit I_Tetrimino() : Tetrimino(TETRIMINO_I) {
     m_baseSqaure = {};
     m_pivot = {};
     m_outter = {

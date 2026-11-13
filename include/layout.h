@@ -1,9 +1,13 @@
 
 #pragma once
+
 #include "cell.h"
 #include "config.h"
+#include "tetrimino.h"
+#include <SDL3/SDL_rect.h>
 #include <iostream>
 #include <ostream>
+#include <span>
 #include <vector>
 
 struct Layout {
@@ -12,15 +16,16 @@ struct Layout {
   std::vector<std::vector<Cell>> makeGrid();
 
   float getCellSize();
+  bool isItOccupied(std::span<SDL_FRect>);
 
   std::vector<Cell> m_cellMatrix;
-  int rows{Config::gridRows};
-  int cols{Config::gridCols};
-  float cellSize{(Config::cellSize)};
-  std::vector<std::vector<Cell>> grid;
+  int m_rows{Config::gridRows};
+  int m_cols{Config::gridCols};
+  float m_cellSize{(Config::cellSize)};
+  std::vector<std::vector<Cell>> m_grid;
 
   Cell& operator[](int idx) {
-    return grid[idx][idx];
+    return m_grid[idx][idx];
   }
 };
 

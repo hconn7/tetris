@@ -17,7 +17,7 @@ file(GLOB SOURCES
 add_executable(tetris ${SOURCES})
 
 # 4. NOW apply your options and directories to the valid target
-target_compile_options(tetris PRIVATE -Wall -Wextra -Wshadow)
+target_compile_options(tetris PRIVATE -g -Wall -Wextra -Wshadow)
 
 target_include_directories(tetris PRIVATE 
     "${CMAKE_CURRENT_SOURCE_DIR}/include"
