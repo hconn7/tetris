@@ -1,8 +1,10 @@
 
 #pragma once
 
+#include "cell.h"
 #include <SDL3/SDL_keycode.h>
 #include <SDL3/SDL_rect.h>
+#include <memory>
 #include <vector>
 
 struct Layout;
@@ -24,6 +26,7 @@ public:
 
   virtual ~Tetrimino() = default;
 
+  std::vector<Point> getPoint();
   void moveTetriminoOnX(SDL_Keycode k);
   void moveTetriminoOnY(Layout& l);
 
@@ -32,6 +35,10 @@ protected:
   SDL_FRect m_pivot;
   std::vector<SDL_FRect> m_outter;
 };
+
+std::unique_ptr<Tetrimino> getRandomTetrimino();
+
+std::vector<std::unique_ptr<Tetrimino>> makeAllTetriminos(int count);
 
 class O_Tetrimino : public Tetrimino {
 

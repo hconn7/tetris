@@ -48,8 +48,8 @@ bool Layout::isItOccupied(std::span<SDL_FRect> allRects) {
   bool isOccupied{false};
   for (const SDL_FRect& rect : allRects) {
     for (Cell& c : m_cellMatrix) {
-      if (rect.y + (Config::cellSize * 2) == c.m_cellIsOccupied) {
-        isOccupied = c.m_cellIsOccupied;
+      if ((rect.y) + Config::cellSize == c.isItOccupied()) {
+        isOccupied = true;
       }
     }
   }

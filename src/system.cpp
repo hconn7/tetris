@@ -7,6 +7,7 @@
 #include <SDL3/SDL_render.h>
 #include <SDL3/SDL_stdinc.h>
 #include <SDL3/SDL_surface.h>
+#include <memory>
 
 void destroy(SystemState& sys) {
   SDL_DestroyRenderer(sys.renderer);
@@ -41,7 +42,22 @@ bool renderTetrimino(SystemState& sys, const Tetrimino& t) {
       SDL_Log("Failed to set render Draw Color for Tetrimino: ");
       return false;
     }
-    //    std::cout << "rendering square at: " << r.x << "and" << r.y;
+  }
+  return true;
+}
+
+bool renderTetriminosOnGrid(SystemState& sys, const std::vector<std::unique_ptr<Tetrimino>>& arr) {
+  if (!SDL_SetRenderDrawColor(sys.renderer, 0, 239, 255, 255)) {
+    SDL_Log("Failed to set render Draw Color for Tetrimino: ");
+    return false;
+  }
+  for (const auto& t : arr) {
+    for (const SDL_FRect r : t->m_allRects)
+      if (!SDL_RenderFillRect(sys.renderer, &r)) {
+        SDL_Log("Failed to set render Draw Color for Tetrimino: ");
+        return false;
+        std::cout << "rendering square at: " << r.x << "and" << r.y << '\n';
+      }
   }
   return true;
 }

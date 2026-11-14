@@ -17,3 +17,4 @@ void destroy(SystemState& sys);
 bool init(SystemState& sys);
 bool renderGrid(SystemState& sys, Layout& l);
 bool renderTetrimino(SystemState& sys, const Tetrimino& t);
+bool renderTetriminosOnGrid(SystemState& sys, const std::vector<std::unique_ptr<Tetrimino>>& arr);

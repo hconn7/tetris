@@ -1,3 +1,4 @@
+#include "cell.h"
 #include "system.h"
 #include "tetrimino.h"
 #include "tetrimino_I.h"
@@ -12,15 +13,19 @@
 #include <SDL3/SDL_stdinc.h>
 #include <SDL3/SDL_timer.h>
 #include <SDL3/SDL_video.h>
+#include <memory>
 #include <vector>
 
 int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
-  I_Tetrimino tetrimino_I{};
-  I_Tetrimino tetrimino_I2{};
 
   Uint64 initialTime = SDL_GetTicks();
   Uint64 accumulator = 0;
   Uint64 INTERVAL_MS = 500;
+
+  std::vector<std::unique_ptr<Tetrimino>> allTetriminos{makeAllTetriminos(10)};
+  std::vector<std::unique_ptr<Tetrimino>> allTetriminosOnGrid{};
+
+  int tetriminoPtr{0};
 
   Layout layout{};
   layout.m_grid = layout.makeGrid();
@@ -36,23 +41,43 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
   SDL_zero(e);
 
   while (sys.isRunning) {
+
+    std::vector<Point> points{allTetriminos[tetriminoPtr]->getPoint()};
+    Point point{};
+
+    for (auto& p : points) {
+      point = p.getCellXY();
+    }
     Uint64 currentTime = SDL_GetTicks();
     Uint64 deltaTime = currentTime - initialTime;
     initialTime = currentTime;
     accumulator += deltaTime;
-
     while (SDL_PollEvent(&e)) {
-
       if (e.type == SDL_EVENT_QUIT) {
         sys.isRunning = false;
       } else if (e.key.key == SDLK_D || e.key.key == SDLK_A) {
-        tetrimino_I.moveTetriminoOnX(e.key.key);
+        allTetriminos[tetriminoPtr]->moveTetriminoOnX(e.key.key);
       }
     }
 
     while (accumulator >= INTERVAL_MS) {
-      tetrimino_I.moveTetriminoOnY(layout);
+      allTetriminos[tetriminoPtr]->moveTetriminoOnY(layout);
       accumulator = 0;
+      points = allTetriminos[tetriminoPtr]->getPoint();
+      for (auto& p : points) {
+        if (p.getCellXY() == point) {
+          int y = p.getCellY();
+          int x = p.getCellX();
+          std::cout << "PRINTING Y: " << y << "Printing X: " << '\n';
+          Cell cell{layout.m_grid[y][x]};
+          cell.isOccupied(cell.m_point);
+
+          std::cout << "Printing Cell Y: " << cell.m_point.m_y << "X: " << cell.m_point.m_x << '\n';
+
+          allTetriminosOnGrid.push_back(std::move(allTetriminos[tetriminoPtr]));
+          tetriminoPtr++;
+        }
+      }
     }
 
     SDL_SetRenderDrawColor(sys.renderer, 0, 0, 0, 255);
@@ -61,7 +86,11 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
     if (!renderGrid(sys, layout)) {
       sys.isRunning = false;
     }
-    if (!renderTetrimino(sys, tetrimino_I)) {
+    if (!renderTetriminosOnGrid(sys, allTetriminosOnGrid)) {
+      sys.isRunning = false;
+      SDL_Log("Failed to render Tetrimino: %s", SDL_GetError());
+    }
+    if (!renderTetrimino(sys, *allTetriminos[tetriminoPtr])) {
       sys.isRunning = false;
       SDL_Log("Failed to render Tetrimino: %s", SDL_GetError());
     }
